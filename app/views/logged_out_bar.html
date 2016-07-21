@@ -52,7 +52,9 @@
                       New here ? <a href="#"><b>Join Us</b></a>
                     </div>
                     <div class="text-center">
-                      <a href="#" class="btn btn-primary btn-fb btn-block">Sign up with facebook</a>
+                      <a ng-click="authenticate('facebook', {params: oAuthForm})" class="btn btn-primary btn-fb btn-block">
+                        Sign up with facebook
+                      </a>
                     </div>
                   </div>
                 </div>

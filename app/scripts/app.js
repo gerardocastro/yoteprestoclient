@@ -38,9 +38,7 @@ angular
       confirmationSuccessUrl: window.location.href,
       emailSignInPath:        '/auth/sign_in',
       authProviderPaths: {
-        github:   '/auth/github',
         facebook: '/auth/facebook',
-        google:   '/auth/google'
       }
     });
   });
