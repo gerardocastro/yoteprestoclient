@@ -16,21 +16,31 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'ng-token-auth'
   ])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
-        controller: 'MainCtrl',
-        controllerAs: 'main'
-      })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl',
-        controllerAs: 'about'
+        controller: 'UserSessionCtrl'
       })
       .otherwise({
         redirectTo: '/'
       });
+  })
+  .config(function($authProvider) {
+    $authProvider.configure({
+      apiUrl:                 'http://localhost:3000/api/v1',
+      tokenValidationPath:    '/auth/validate_token',
+      signOutUrl:             '/auth/sign_out',
+      emailRegistrationPath:  '/auth/auth',
+      confirmationSuccessUrl: window.location.href,
+      emailSignInPath:        '/auth/sign_in',
+      authProviderPaths: {
+        github:   '/auth/github',
+        facebook: '/auth/facebook',
+        google:   '/auth/google'
+      }
+    });
   });
