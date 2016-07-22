@@ -1,0 +1,112 @@
+<div ng-include="'views/logged_in_bar.html'"></div>
+
+<div class="container">
+  <div class="col-lg-11">
+    <alert></alert>
+    <div class="panel panel-success">
+      <div class="panel-heading text-center">
+        <h4>PROFILE</h4>
+      </div>
+      <form class="form-horizontal" ng-submit="updateUser()">
+        <div class="panel-body">
+          <div class="col-lg-3">
+            <img ng-src="{{ user.image }}?type=large" style="width: 100%">
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <div class="progress">
+                  <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="{{progress}}" aria-valuemin="0" aria-valuemax="100" style="width: {{progress}}%;">
+                    {{progress}}%
+                  </div>
+                </div>
+              </div>
+              <div class="panel-footer text-center">
+                Profile completed
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-8">
+            <div class="form-group">
+              <label for="username" class="col-sm-3 control-label">Username</label>
+              <div class="col-sm-9">
+                <input type="text" ng-model="user.username" class="form-control" id="username">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="email" class="col-sm-3 control-label">Email</label>
+              <div class="col-sm-9">
+                <input type="email" ng-model="user.email" class="form-control" id="email" disabled>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="first_name" class="col-sm-3 control-label">First Name</label>
+              <div class="col-sm-9">
+                <input type="text" ng-model="user.first_name" class="form-control" id="first_name">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="second_name" class="col-sm-3 control-label">Second Name</label>
+              <div class="col-sm-9">
+                <input type="text" ng-model="user.second_name" class="form-control" id="second_name">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="f_last_name" class="col-sm-3 control-label">Fist Last Name</label>
+              <div class="col-sm-9">
+                <input type="text" ng-model="user.f_last_name" class="form-control" id="f_last_name">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="s_last_name" class="col-sm-3 control-label">Second Last Name</label>
+              <div class="col-sm-9">
+                <input type="text" ng-model="user.s_last_name" class="form-control" id="s_last_name">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="sex" class="col-sm-3 control-label">Sex</label>
+              <div class="col-sm-9">
+                <select name="sex" id="sex" class="form-control" ng-model="user.sex">
+                  <option ng-repeat="option in sexOptions" value="{{option}}">{{option}}</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="curp" class="col-sm-3 control-label">Curp</label>
+              <div class="col-sm-9">
+                <input type="text" ng-model="user.curp" class="form-control" id="curp" maxlength="18">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="rfc" class="col-sm-3 control-label">RFC</label>
+              <div class="col-sm-9">
+                <input type="text" ng-model="user.rfc" class="form-control" id="rfc" maxlength="13">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="mobile" class="col-sm-3 control-label">Mobile Phone Number</label>
+              <div class="col-sm-9">
+                <input type="text" ng-model="user.mobile" class="form-control" id="mobile" maxlength="20">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="phone" class="col-sm-3 control-label">Phone Number</label>
+              <div class="col-sm-9">
+                <input type="text" ng-model="user.phone" class="form-control" id="phone" maxlength="20">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="password" class="col-sm-3 control-label">Password</label>
+              <div class="col-sm-9">
+                <input type="password" ng-model="user.password" class="form-control" id="password">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="panel-footer text-right">
+          <button type="submit" class="btn btn-success">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+

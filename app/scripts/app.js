@@ -19,14 +19,34 @@ angular
     'ngTouch',
     'ng-token-auth'
   ])
-  .config(function ($routeProvider) {
+  .config(function ($routeProvider, $locationProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
-        controller: 'UserSessionCtrl'
+        controller: 'UserSessionCtrl',
+        reloadOnSearch: true,
+        resolve: {
+          auth: function($auth, $window) {
+            var validation = $auth.validateUser();
+            validation.then(function(resp){
+                $window.location.href = '/#/profile';
+              });
+          }
+        }
+      })
+      .when('/profile', {
+        templateUrl: 'views/profile.html',
+        controller: 'ProfileCtrl',
+        resolve: {
+          auth: function($auth, $window) {
+            $auth.validateUser().catch(function(resp){
+                $window.location.href = '/#/';
+              });
+          }
+        }
       })
       .otherwise({
-        redirectTo: '/'
+        redirectTo: '/#/'
       });
   })
   .config(function($authProvider) {
@@ -35,7 +55,6 @@ angular
       tokenValidationPath:    '/auth/validate_token',
       signOutUrl:             '/auth/sign_out',
       emailRegistrationPath:  '/auth/auth',
-      confirmationSuccessUrl: window.location.href,
       emailSignInPath:        '/auth/sign_in',
       authProviderPaths: {
         facebook: '/auth/facebook',

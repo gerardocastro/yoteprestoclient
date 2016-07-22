@@ -14,6 +14,7 @@
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
+    <base href="/">
   </head>
   <body ng-app="yoteprestoclientApp">
     <!--[if lte IE 8]>
@@ -44,6 +45,11 @@
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/user_session.js"></script>
+        <script src="scripts/controllers/profile.js"></script>
+        <script src="scripts/services/user.js"></script>
+        <script src="scripts/directives/alert.js"></script>
+        <script src="scripts/services/format_errors.js"></script>
+        <script src="scripts/filters/empty_attributes.js"></script>
         <!-- endbuild -->
 </body>
 </html>
