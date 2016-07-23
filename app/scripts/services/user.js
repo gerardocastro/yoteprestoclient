@@ -9,7 +9,7 @@
  */
 angular.module('yoteprestoclientApp')
   .factory('User', function ($resource) {
-    return $resource('http://localhost:3000/api/v1/users', null, {
+    return $resource('https://yoteprestoapi.herokuapp.com/api/v1/users', null, {
         'update': { method:'PUT' }
       });
   });

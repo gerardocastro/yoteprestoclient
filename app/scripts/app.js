@@ -66,7 +66,7 @@ angular
   })
   .config(function($authProvider) {
     $authProvider.configure({
-      apiUrl:                 'http://localhost:3000/api/v1',
+      apiUrl:                 'https://yoteprestoapi.herokuapp.com/api/v1',
       tokenValidationPath:    '/auth/validate_token',
       signOutUrl:             '/auth/sign_out',
       emailRegistrationPath:  '/auth/auth',
