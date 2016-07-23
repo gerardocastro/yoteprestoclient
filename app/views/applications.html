@@ -1,0 +1,36 @@
+<div ng-include="'views/bars/logged_in_bar.html'"></div>
+
+<div class="container">
+  <div class="col-md-2 col-md-offset-10">
+    <a herf="javascript:void(0)" ng-click="newApplication()" class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#applicationModal">
+      New
+    </a>
+  </div>
+  <div class="col-md-12">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Loan title</th>
+          <th>Loan detail</th>
+          <th>Loan destination</th>
+          <th>Funding days</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="application in applications | orderBy : 'id'">
+          <td>{{ application.loan_title }}</td>
+          <td>{{ application.loan_detail }}</td>
+          <td>{{ application.loan_destination }}</td>
+          <td>{{ application.funding_days }}</td>
+          <td>
+            <a herf="javascript:void(0)" ng-click="editApplication(application.id)" data-toggle="modal" data-target="#applicationModal" class="btn btn-warning">
+              Edit
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div ng-include="'views/applications/modal_form.html'"></div>
+</div>

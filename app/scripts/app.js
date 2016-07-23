@@ -17,7 +17,8 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'ng-token-auth'
+    'ng-token-auth',
+    'LocalStorageModule'
   ])
   .config(function ($routeProvider, $locationProvider) {
     $routeProvider
@@ -45,9 +46,23 @@ angular
           }
         }
       })
+      .when('/applications', {
+        templateUrl: 'views/applications.html',
+        controller: 'ApplicationsCtrl',
+        resolve: {
+          auth: function($auth, $window) {
+            $auth.validateUser().catch(function(resp){
+                $window.location.href = '/#/';
+              });
+          }
+        }
+      })
       .otherwise({
         redirectTo: '/#/'
       });
+  })
+  .config(function(localStorageServiceProvider) {
+    localStorageServiceProvider.setPrefix('ls');
   })
   .config(function($authProvider) {
     $authProvider.configure({

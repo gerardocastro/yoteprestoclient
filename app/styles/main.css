@@ -37,3 +37,7 @@
   width: auto;
   padding: 5px;
 }
+.modal-body {
+  height: 500px;
+  overflow: auto;
+}

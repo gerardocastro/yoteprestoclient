@@ -1,7 +1,7 @@
-<div ng-include="'views/logged_in_bar.html'"></div>
+<div ng-include="'views/bars/logged_in_bar.html'"></div>
 
 <div class="container">
-  <div class="col-lg-11">
+  <div class="col-md-11">
     <alert></alert>
     <div class="panel panel-success">
       <div class="panel-heading text-center">
@@ -9,7 +9,7 @@
       </div>
       <form class="form-horizontal" ng-submit="updateUser()">
         <div class="panel-body">
-          <div class="col-lg-3">
+          <div class="col-md-3">
             <img ng-src="{{ user.image }}?type=large" style="width: 100%">
             <div class="panel panel-default">
               <div class="panel-body">
@@ -24,7 +24,7 @@
               </div>
             </div>
           </div>
-          <div class="col-lg-8">
+          <div class="col-md-8">
             <div class="form-group">
               <label for="username" class="col-sm-3 control-label">Username</label>
               <div class="col-sm-9">
